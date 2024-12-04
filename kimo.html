@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimo - المساعد الذكي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .chat-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: auto;
+        }
+
+        .back-button:hover {
+            opacity: 0.9;
+        }
+
+        [dir="rtl"] .ar-icon {
+            display: inline-block;
+        }
+
+        [dir="rtl"] .en-icon {
+            display: none;
+        }
+
+        [dir="ltr"] .ar-icon {
+            display: none;
+        }
+
+        [dir="ltr"] .en-icon {
+            display: inline-block;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            margin-left: 20%;
+        }
+
+        .bot-message {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            margin-right: 20%;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            opacity: 0.9;
+        }
+
+        .top-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-controls">
+            <button id="backButton" class="back-button" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-right ar-icon"></i>
+                <i class="fas fa-arrow-left en-icon"></i>
+                <span class="ar">الرجوع للصفحة الرئيسية</span>
+                <span class="en">Back to Home</span>
+            </button>
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="languageToggle" class="language-toggle">
+                <i class="fas fa-language"></i>
+                <span class="ar">English</span>
+                <span class="en">عربي</span>
+            </button>
+        </div>
+
+        <div class="chat-container">
+            <h1>
+                <span class="ar">كيمو - المساعد الذكي</span>
+                <span class="en">Kimo - AI Assistant</span>
+            </h1>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="اكتب رسالتك هنا...">
+                <button id="sendMessage">
+                    <span class="ar">إرسال</span>
+                    <span class="en">Send</span>
+                </button>
+            </div>
+        </div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="kimo.js"></script>
+</body>
+</html>

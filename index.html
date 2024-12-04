@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernSat - متجر الإلكترونيات</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="top-controls">
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="languageToggle" class="language-toggle">
+                    <i class="fas fa-language"></i> 
+                    <span class="ar">الإنجليزية</span>
+                    <span class="en">English</span>
+                </button>
+                <button id="aiAssistant" class="ai-assistant" onclick="window.open('kimo.html', '_blank')">
+                    <i class="fas fa-robot"></i>
+                    <span class="ar">كيمو - المساعد الذكي</span>
+                    <span class="en">Kimo - AI Assistant</span>
+                </button>
+            </div>
+            <h1>
+                <span class="ar">ModernSat - متجر الإلكترونيات</span>
+                <span class="en">ModernSat - Electronics Store</span>
+            </h1>
+            <div class="search-box">
+                <input type="text" id="searchInput">
+                <span class="ar" data-placeholder="ابحث عن منتج..."></span>
+                <span class="en" data-placeholder="Search for a product..."></span>
+                <select id="categoryFilter">
+                    <option value="all">
+                        <span class="ar">جميع الأقسام</span>
+                        <span class="en">All Categories</span>
+                    </option>
+                    <option value="tv">
+                        <span class="ar">تلفزيونات</span>
+                        <span class="en">TVs</span>
+                    </option>
+                    <option value="receivers">
+                        <span class="ar">رسيفرات</span>
+                        <span class="en">Receivers</span>
+                    </option>
+                    <option value="accessories">
+                        <span class="ar">إكسسوارات</span>
+                        <span class="en">Accessories</span>
+                    </option>
+                    <option value="cables">
+                        <span class="ar">كابلات</span>
+                        <span class="en">Cables</span>
+                    </option>
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <section class="product-form">
+                <h2>
+                    <span class="ar">إضافة/تعديل منتج</span>
+                    <span class="en">Add/Edit Product</span>
+                </h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label>
+                            <span class="ar">اسم المنتج:</span>
+                            <span class="en">Product Name:</span>
+                        </label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span class="ar">السعر:</span>
+                            <span class="en">Price:</span>
+                        </label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span class="ar">التصنيف:</span>
+                            <span class="en">Category:</span>
+                        </label>
+                        <select id="productCategory" required>
+                            <option value="tv">
+                                <span class="ar">تلفزيونات</span>
+                                <span class="en">TVs</span>
+                            </option>
+                            <option value="receivers">
+                                <span class="ar">رسيفرات</span>
+                                <span class="en">Receivers</span>
+                            </option>
+                            <option value="accessories">
+                                <span class="ar">إكسسوارات</span>
+                                <span class="en">Accessories</span>
+                            </option>
+                            <option value="cables">
+                                <span class="ar">كابلات</span>
+                                <span class="en">Cables</span>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span class="ar">الكمية:</span>
+                            <span class="en">Quantity:</span>
+                        </label>
+                        <input type="number" id="productQuantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span class="ar">الوصف:</span>
+                            <span class="en">Description:</span>
+                        </label>
+                        <textarea id="productDescription" required></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn">
+                        <span class="ar">إضافة منتج</span>
+                        <span class="en">Add Product</span>
+                    </button>
+                    <button type="button" id="clearBtn">
+                        <span class="ar">مسح النموذج</span>
+                        <span class="en">Clear Form</span>
+                    </button>
+                </form>
+            </section>
+
+            <section class="products-list">
+                <h2>
+                    <span class="ar">قائمة المنتجات</span>
+                    <span class="en">Products List</span>
+                </h2>
+                <div class="sort-controls">
+                    <button id="sortByName">
+                        <span class="ar">ترتيب حسب الاسم</span>
+                        <span class="en">Sort by Name</span>
+                    </button>
+                    <button id="sortByPrice">
+                        <span class="ar">ترتيب حسب السعر</span>
+                        <span class="en">Sort by Price</span>
+                    </button>
+                </div>
+                <div id="productsList" class="products-grid"></div>
+            </section>
+        </main>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script src="script.js"></script>
+</body>
+</html>
